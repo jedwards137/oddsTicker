@@ -4,11 +4,9 @@ require_relative '../services/events_service'
 
 # app/controllers/events_controller.rb
 class EventsController < ApplicationController
-  def index
+  def show
     sports_param = params[:sports].split(',')
-    puts sports_param.to_s
-    EventsService.get_events_for_sports(sports_param)
-
-    render json: @events
+    sport_aggregates_list = EventsService.sports_aggregates_today(sports_param)
+    render json: sport_aggregates_list
   end
 end

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get '/events' => 'events#index'
+  get '/events/today' => 'events#show'
+  get '/sports/today' => 'sports#today'
 end
