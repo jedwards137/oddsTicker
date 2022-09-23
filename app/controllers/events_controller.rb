@@ -6,7 +6,7 @@ require_relative '../services/events_service'
 class EventsController < ApplicationController
   def show
     sports_param = params[:sports].split(',')
-    sport_aggregates_list = EventsService.sports_aggregates_today(sports_param)
+    sport_aggregates_list = EventsService.sport_aggregates_today(sports_param)
     render json: sport_aggregates_list
   end
 end

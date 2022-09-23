@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   get '/events/today' => 'events#show'
   get '/sports/today' => 'sports#today'
+  get '/sports' => 'sports#index'
 end
