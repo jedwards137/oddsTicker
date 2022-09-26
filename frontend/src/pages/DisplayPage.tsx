@@ -1,29 +1,28 @@
 import {useEffect, useState} from "react";
 
-const TickerPage = () => {
+const DisplayPage = () => {
   const [odds, setOdds] = useState([]);
 
   useEffect(() => {
     const fetchOdds = async () => {
-      const response = await fetch('/api/events');
+      const response = await fetch('/events/today?sports=americanfootball_nfl');
+      console.log(response)
       const responseJson = await response.json();
+      console.log(responseJson)
       if (response.ok) {
         setOdds(responseJson);
         console.log(responseJson);
       }
     }
 
-    //fetchOdds();
+    fetchOdds();
   }, [])
 
   return (
     <div>
-      <h1>ticker page</h1>
-      {odds && odds.map(() => (
-        <p>{odds.sportKey}</p>
-      ))}
+      <h1>display page</h1>
     </div>
   );
 }
 
-export default TickerPage;
+export default DisplayPage;
