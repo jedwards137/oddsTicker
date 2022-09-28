@@ -1,27 +1,32 @@
-import {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import Grid from "@mui/material/Unstable_Grid2";
+import { IEvent } from "../models/IEvent";
+import { translateEvents } from "../translators/EventsTranslator";
+import EventRow from "../components/EventListing/EventRow";
 
 const DisplayPage = () => {
-  const [odds, setOdds] = useState([]);
+  const [events, setEvents] = useState<IEvent[]>([]);
 
   useEffect(() => {
     const fetchOdds = async () => {
-      const response = await fetch('/events/today?sports=americanfootball_nfl');
-      console.log(response)
+      const response = await fetch('/sports/baseball_mlb/odds/?regions=us&markets=spreads,h2h,totals&oddsFormat=american');
       const responseJson = await response.json();
-      console.log(responseJson)
       if (response.ok) {
-        setOdds(responseJson);
-        console.log(responseJson);
+        var translatedEvents = translateEvents(responseJson);
+        setEvents(translatedEvents);
       }
     }
-
     fetchOdds();
-  }, [])
+  }, []);
 
   return (
-    <div>
-      <h1>display page</h1>
-    </div>
+    <Grid container>
+    <Grid xs={12}>
+      {events && events.map((event: IEvent) => (
+          <EventRow event={event} />
+      ))}
+      </Grid>
+    </Grid>
   );
 }
 

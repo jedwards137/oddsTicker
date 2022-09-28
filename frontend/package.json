@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:3080/api",
+  "proxy": "https://api.the-odds-api.com/v4",
   "name": "odds-dashboard",
   "version": "0.1.0",
   "private": true,

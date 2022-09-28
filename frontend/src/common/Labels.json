@@ -1,0 +1,29 @@
+{
+  "common": {
+    "scores": "SCORES",
+    "null": "--"
+  },
+  "sports": {
+    "baseball": {
+      "h2h": "MONEY LINE",
+      "spread": "RUN LINE",
+      "total": "TOTAL RUNS"
+    }
+  },
+  "date": {
+    "months": {
+      "1": "JAN",
+      "2": "FEB",
+      "3": "MAR",
+      "4": "APR",
+      "5": "MAY",
+      "6": "JUN",
+      "7": "JUL",
+      "8": "AUG",
+      "9": "SEP",
+      "10": "OCT",
+      "11": "NOV",
+      "12": "DEC"
+    }
+  }
+}
